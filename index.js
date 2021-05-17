@@ -10,12 +10,20 @@ const typeDefs = gql`
     publisher: String
     byline: String
     image: String
-    publishedAt: String
+    publishedAt: Date
     shares: [Tweet]
   }
 
   type Tweet {
+    text: String
+    author: Author
+    publishedAt: Date
+  }
 
+  type Author {
+    name: String
+    handle: String
+    image: String
   }
 `
 
