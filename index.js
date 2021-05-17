@@ -3,12 +3,19 @@ import { ApolloServer, gql } from 'apollo-server'
 import resolvers from './resolvers/'
 
 const typeDefs = gql`
-  type Book {
+
+  type Article {
     title: String
-    author: String
+    description: String
+    publisher: String
+    byline: String
+    image: String
+    publishedAt: String
+    shares: [Tweet]
   }
-  type Query {
-    books: [Book]
+
+  type Tweet {
+
   }
 `
 
