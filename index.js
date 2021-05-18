@@ -1,5 +1,6 @@
 
 import { ApolloServer, gql } from 'apollo-server'
+import { getSession } from 'next-auth/client'
 import resolvers from './resolvers/'
 
 const typeDefs = gql`
@@ -25,9 +26,21 @@ const typeDefs = gql`
     handle: String
     image: String
   }
+
+  type Query {
+    today(): [Article]
+    yesterday(): [Article]
+    pastWeek(): [Article]
+    pastHours(n: Int): [Article]
+  }
+}
 `
 
-const server = new ApolloServer({ typeDefs, resolvers })
+const context = ({ req }) => {
+  return getSession()
+}
+
+const server = new ApolloServer({ typeDefs, resolvers, context })
 
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`)

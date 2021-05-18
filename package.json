@@ -6,9 +6,10 @@
     "dev": "ncc run index.js"
   },
   "dependencies": {
-    "@notnuzzel/prisma": "^1.0.6",
+    "@notnuzzel/prisma": "^1.0.7",
     "apollo-server": "^2.24.0",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "next-auth": "^3.23.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.28.5"
